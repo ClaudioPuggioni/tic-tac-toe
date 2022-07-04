@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  /* border: 1px dotted purple; */
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/public/assets/baldMax.png");
+  background-repeat: none;
+  background-size: cover;
+
+  font-family: "Finger Paint";
+}
+
+#gameContainer {
+  display: flex;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+}
+.row {
+  display: flex;
+}
+
+#currentPlayerHeader {
+  display: flex;
+  align-items: center;
+
+  font-size: 15px;
+  margin: 5px 0px;
+}
+#currentPlayerXO {
+  padding-left: 3px;
+}
+button.square {
+  height: 120px;
+  width: 120px;
+
+  font-size: 100px;
+  font-family: "Gochi Hand";
+  font-weight: 999;
+  text-shadow: 2px 2px 1px black;
+  text-align: center;
+
+  padding: 8px 12px;
+  border: none;
+  background-color: transparent;
+}
+#r0c0 {
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+}
+#r0c1 {
+  border-bottom: 5px solid black;
+}
+#r0c2 {
+  border-left: 5px solid black;
+  border-bottom: 5px solid black;
+}
+#r1c0 {
+  border-right: 5px solid black;
+}
+#r1c1 {
+}
+#r1c2 {
+  border-left: 5px solid black;
+}
+#r2c0 {
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+}
+#r2c1 {
+  border-top: 5px solid black;
+}
+#r2c2 {
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+
+#progress {
+  margin: 5px 0px;
+}
+
+#historyHeader {
+  font-size: 22px;
+  margin: 6px 0px;
+  margin-top: 10px;
+}
+#historyColumn {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 100px;
+}
+.historyButtons {
+  padding: 5px 8px;
+  margin: 3px 0px;
+
+  border: none;
+  border-radius: 5px;
+}
