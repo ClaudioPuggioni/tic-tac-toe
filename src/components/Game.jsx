@@ -1,7 +1,8 @@
 import Board from "./Board";
 import { useState } from "react";
-const Osound = new Audio("assets/Osound.mp3");
-const Xsound = new Audio("assets/Xsound.mp3");
+import { Howl } from "howler";
+const Osound = new Howl({ src: "assets/Osound.mp3" });
+const Xsound = new Howl({ src: "assets/Xsound.mp3" });
 
 let startingBoard = new Array(3).fill(0).map((el) => new Array(3).fill(" "));
 let boardHistory = [];
@@ -44,7 +45,7 @@ function Game() {
   }
 
   let handleClick = (row, col) => {
-    if (gameStatus.slice(gameStatus.length - 3) !== "won" && gameStatus !== "Draw") {
+    if (gameStatus.slice(gameStatus.length - 3) !== "won" && gameStatus !== "Draw" && currBoard[row][col] === " ") {
       let copyBoard = JSON.parse(JSON.stringify(currBoard));
 
       copyBoard[row][col] = isXPlaying ? "X" : "O";
