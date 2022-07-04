@@ -59,6 +59,9 @@ function Game() {
       setIsXPlaying(!isXPlaying);
 
       setGameStatus(ticTacToeGameStatus(copyBoard, isXPlaying ? "X" : "O"));
+      // setTimeout(() => {
+      if (gameStatus.slice(gameStatus.length - 3) === "won" || gameStatus === "Draw") setIsXPlaying("none");
+      // }, 3000);
     }
   };
 
@@ -71,14 +74,16 @@ function Game() {
   };
 
   return (
-    <div id="gameContainer">
-      <div id="gameColumn">
-        <h1>Disrespectful</h1> <h1>TicTacToe</h1>
-        <div id="currentPlayerHeader">
-          Current Player:<div id="currentPlayerXO">{isXPlaying ? "X" : "O"}</div>
+    <div id="container">
+      <div id="gameContainer">
+        <div id="gameColumn">
+          <h1>Disrespectful</h1> <h1>TicTacToe</h1>
+          <div id="currentPlayerHeader">
+            Current Player:<div id="currentPlayerXO">{isXPlaying ? "X" : "O"}</div>
+          </div>
+          <Board currentBoardPassed={currBoard} handleClick={handleClick} />
+          <div id="progress">Status: {gameStatus}</div>
         </div>
-        <Board currentBoardPassed={currBoard} handleClick={handleClick} />
-        <div id="progress">Status: {gameStatus}</div>
       </div>
 
       <div id="historyColumn">

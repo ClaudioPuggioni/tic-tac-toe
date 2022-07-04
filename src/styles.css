@@ -22,32 +22,43 @@
 
   font-family: "Finger Paint";
 }
-
+#container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 #gameContainer {
   display: flex;
+  height: 50%;
 }
 
 #board {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-self: center;
 
   opacity: 0;
 }
 .row {
   display: flex;
+  justify-content: center;
 }
 
 #currentPlayerHeader {
   display: flex;
   align-items: center;
 
-  font-size: 15px;
-  margin: 5px 0px;
+  font-size: 16px;
+  margin: 5px 8px;
 }
 #currentPlayerXO {
-  padding-left: 3px;
+  padding-left: 5px;
+  font-size: 20px;
+  font-weight: 999;
 }
 button.square {
   height: 120px;
@@ -64,50 +75,51 @@ button.square {
   background-color: transparent;
 }
 #r0c0 {
-  border-right: 5px solid black;
-  border-bottom: 5px solid black;
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
 }
 #r0c1 {
-  border-bottom: 5px solid black;
+  border-bottom: 10px solid black;
 }
 #r0c2 {
-  border-left: 5px solid black;
-  border-bottom: 5px solid black;
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
 }
 #r1c0 {
-  border-right: 5px solid black;
-}
-#r1c1 {
+  border-right: 10px solid black;
 }
 #r1c2 {
-  border-left: 5px solid black;
+  border-left: 10px solid black;
 }
 #r2c0 {
-  border-top: 5px solid black;
-  border-right: 5px solid black;
+  border-top: 10px solid black;
+  border-right: 10px solid black;
 }
 #r2c1 {
-  border-top: 5px solid black;
+  border-top: 10px solid black;
 }
 #r2c2 {
-  border-top: 5px solid black;
-  border-left: 5px solid black;
+  border-top: 10px solid black;
+  border-left: 10px solid black;
 }
 
 #progress {
-  margin: 5px 0px;
+  margin: 15px 0px;
+  font-size: 30px;
 }
 
-#historyHeader {
-  font-size: 22px;
-  margin: 6px 0px;
-  margin-top: 10px;
-}
 #historyColumn {
+  position: absolute;
+  right: 200px;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
   width: 100px;
+}
+#historyHeader {
+  font-size: 22px;
+  margin: 6px 0px;
+  margin-top: 10px;
 }
 .historyButtons {
   padding: 5px 8px;
@@ -115,4 +127,5 @@ button.square {
 
   border: none;
   border-radius: 5px;
+  background-color: peachpuff;
 }

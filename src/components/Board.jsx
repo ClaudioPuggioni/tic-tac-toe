@@ -15,11 +15,7 @@ function Board(props) {
     </div>
   );
 
-  return (
-    <div className="boardPlusMenu">
-      <div className="board">{props.currentBoardPassed.map((el, idx) => generateRow(idx))}</div>
-    </div>
-  );
+  return <div className="board">{props.currentBoardPassed.map((el, idx) => generateRow(idx))}</div>;
 }
 
 export default Board;
