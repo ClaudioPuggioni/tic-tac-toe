@@ -63,9 +63,8 @@ function Game() {
       setIsXPlaying(!isXPlaying);
 
       setGameStatus(ticTacToeGameStatus(copyBoard, isXPlaying ? "X" : "O"));
-      // setTimeout(() => {
+
       if (gameStatus.slice(gameStatus.length - 3) === "won" || gameStatus === "Draw") setIsXPlaying("none");
-      // }, 3000);
     }
   };
 
