@@ -86,7 +86,7 @@ function Game() {
 
   return (
     <div id="body">
-      <div id="pregame" onClick={startUp} className={addDisappear} style={{ display: pregameDisplay }}>
+      <div id="pregame" onClick={startUp} className={addDisappear}>
         Click Screen to Begin...
       </div>
       <div id="container" className={addAppear}>
