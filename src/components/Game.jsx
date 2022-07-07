@@ -8,6 +8,10 @@ let startingBoard = new Array(3).fill(0).map((el) => new Array(3).fill(" "));
 let boardHistory = [];
 
 function Game() {
+  let [addDisappear, setAddDisappear] = useState(null);
+  let [addAppear, setAddAppear] = useState(null);
+  let [pregameDisplay, setPregameDisplay] = useState("flex");
+
   let [currBoard, setCurrentBoard] = useState(startingBoard);
   let [isXPlaying, setIsXPlaying] = useState(true);
   let [gameStatus, setGameStatus] = useState("Starting...");
@@ -73,30 +77,51 @@ function Game() {
     if (gameStatus.slice(gameStatus.length - 3) === "won" || gameStatus === "Draw") setGameStatus("Game in Progress");
   };
 
+  function startUp() {
+    setAddDisappear("disappearANI");
+    setTimeout(() => {
+      setPregameDisplay("none");
+      setAddAppear("appearANI");
+    }, 2000);
+  }
+
   return (
-    <div id="container">
-      <div id="gameContainer">
-        <div id="gameColumn">
+    <>
+      <div
+        id="pregame"
+        onClick={() => {
+          startUp();
+        }}
+        className={addDisappear}
+        style={{ display: pregameDisplay }}
+      >
+        Click Screen to Begin...
+      </div>
+      <div id="container" className={addAppear}>
+        <div id="gameName">
           <h1>Disrespectful</h1> <h1>TicTacToe</h1>
-          <div id="currentPlayerHeader">
-            Current Player:<div id="currentPlayerXO">{isXPlaying ? "X" : "O"}</div>
+        </div>
+        <div id="gameContainer">
+          <div id="gameColumn">
+            <div id="currentPlayerHeader">
+              Current Player:<div id="currentPlayerXO">{isXPlaying ? "X" : "O"}</div>
+            </div>
+            <Board currentBoardPassed={currBoard} handleClick={handleClick} />
+            <div id="progress">Status: {gameStatus}</div>
           </div>
-          <Board currentBoardPassed={currBoard} handleClick={handleClick} />
-          <div id="progress">Status: {gameStatus}</div>
+        </div>
+        <div id="historyColumn">
+          <div id="historyHeader">History</div>
+          {history.map((ele, idx) => {
+            return (
+              <button className="historyButtons" onClick={() => somefunction(idx)}>
+                Move #{idx + 1}
+              </button>
+            );
+          })}
         </div>
       </div>
-
-      <div id="historyColumn">
-        <div id="historyHeader">History</div>
-        {history.map((ele, idx) => {
-          return (
-            <button className="historyButtons" onClick={() => somefunction(idx)}>
-              Move #{idx + 1}
-            </button>
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 }
 

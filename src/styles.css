@@ -22,6 +22,24 @@
 
   font-family: "Finger Paint";
 }
+
+#pregame {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  z-index: 999999999999999999999999999999999999999;
+
+  font-size: 70px;
+  font-weight: 999;
+  text-shadow: 0px 0px 2px black;
+}
+
 #container {
   position: relative;
   display: flex;
@@ -29,6 +47,13 @@
   align-items: center;
   height: 100%;
   width: 100%;
+
+  opacity: 0;
+}
+#gameName {
+  position: absolute;
+  top: 7%;
+  left: 15%;
 }
 #gameContainer {
   display: flex;
@@ -73,6 +98,7 @@ button.square {
   padding: 8px 12px;
   border: none;
   background-color: transparent;
+  opacity: 100%;
 }
 #r0c0 {
   border-right: 10px solid black;
@@ -128,4 +154,30 @@ button.square {
   border: none;
   border-radius: 5px;
   background-color: peachpuff;
+}
+
+.disappearANI {
+  animation: disappear 2s ease-in 0s 1 normal forwards;
+}
+
+.appearANI {
+  animation: appear 2s ease-in 0s 1 normal forwards;
+}
+
+@keyframes disappear {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }
