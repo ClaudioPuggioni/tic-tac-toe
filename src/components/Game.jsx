@@ -8,8 +8,8 @@ let startingBoard = new Array(3).fill(0).map((el) => new Array(3).fill(" "));
 let boardHistory = [];
 
 function Game() {
-  let [addDisappear, setAddDisappear] = useState(null);
-  let [addAppear, setAddAppear] = useState(null);
+  let [addDisappear, setAddDisappear] = useState("none");
+  let [addAppear, setAddAppear] = useState("none");
   let [pregameDisplay, setPregameDisplay] = useState("flex");
 
   let [currBoard, setCurrentBoard] = useState(startingBoard);
