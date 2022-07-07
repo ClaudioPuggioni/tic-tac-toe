@@ -10,7 +10,6 @@ let boardHistory = [];
 function Game() {
   let [addDisappear, setAddDisappear] = useState(false);
   let [addAppear, setAddAppear] = useState(false);
-  let [pregameDisplay, setPregameDisplay] = useState(false);
 
   let [currBoard, setCurrentBoard] = useState(startingBoard);
   let [isXPlaying, setIsXPlaying] = useState(true);
@@ -79,14 +78,13 @@ function Game() {
   function startUp() {
     setAddDisappear("disappearANI");
     setTimeout(() => {
-      setPregameDisplay("noPointerEDiv");
       setAddAppear("appearANI");
     }, 2000);
   }
 
   return (
     <div id="body">
-      <div id="pregame" onClick={startUp} className={`${addDisappear} ${pregameDisplay}`}>
+      <div id="pregame" onClick={startUp} className={addDisappear}>
         Click Screen to Begin...
       </div>
       <div id="container" className={addAppear}>
