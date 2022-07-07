@@ -162,6 +162,9 @@ button.square {
 .disappearANI {
   animation: disappear 2s ease-in 0s 1 normal forwards;
 }
+.noPointerEDiv {
+  pointer-events: none;
+}
 
 .appearANI {
   animation: appear 2s ease-in 0s 1 normal forwards;

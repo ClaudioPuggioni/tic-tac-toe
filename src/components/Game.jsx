@@ -1,8 +1,8 @@
 import Board from "./Board";
 import { useState } from "react";
 import { Howl } from "howler";
-const Osound = new Howl({ src: "assets/Osound.mp3" });
-const Xsound = new Howl({ src: "assets/Xsound.mp3" });
+const Osound = new Howl({ src: "assets/Osound.mp3", volume: 0.57 });
+const Xsound = new Howl({ src: "assets/Xsound.mp3", volume: 0.57 });
 
 let startingBoard = new Array(3).fill(0).map((el) => new Array(3).fill(" "));
 let boardHistory = [];
@@ -10,7 +10,7 @@ let boardHistory = [];
 function Game() {
   let [addDisappear, setAddDisappear] = useState(false);
   let [addAppear, setAddAppear] = useState(false);
-  let [pregameDisplay, setPregameDisplay] = useState("flex");
+  let [pregameDisplay, setPregameDisplay] = useState(false);
 
   let [currBoard, setCurrentBoard] = useState(startingBoard);
   let [isXPlaying, setIsXPlaying] = useState(true);
@@ -79,14 +79,14 @@ function Game() {
   function startUp() {
     setAddDisappear("disappearANI");
     setTimeout(() => {
-      setPregameDisplay("none");
+      setPregameDisplay("noPointerEDiv");
       setAddAppear("appearANI");
     }, 2000);
   }
 
   return (
     <div id="body">
-      <div id="pregame" onClick={startUp} className={addDisappear}>
+      <div id="pregame" onClick={startUp} className={`${addDisappear} ${pregameDisplay}`}>
         Click Screen to Begin...
       </div>
       <div id="container" className={addAppear}>
